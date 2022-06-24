@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  fobapirestSession:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.9
+      CodeUri: .
+      Description: ''
+      MemorySize: 128
+      Timeout: 10
+      Role: 'arn:aws:iam::362400265031:role/lambda-vpc-role'
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0bf761c272e9c3f0c
+          - sg-0ed5c6136530eaecb
+          - sg-6bb0040c
+          - sg-00dcb3e285e323e50
+        SubnetIds:
+          - subnet-9f8f85e8
+          - subnet-0b4dce7b3ac3f45e7
+          - subnet-7cee1f18
+          - subnet-872d0dde
+          - subnet-8293e9aa
